@@ -1,38 +1,48 @@
 .App {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.drag-container {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.head {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  background-color: #cccccc;
+  width: 100%;
+}
+.droppable {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  right: 0;
+  top: 10;
+  background-color: #9E9E9E;
+  border-left: 2px dotted red;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.option {
+  width: 50%;
+  border: black;
+  border-width: 5px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.draggable {
+  width: 100px;
+  height: 100px;
+  background-color: yellow;
+  margin: 10px auto;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.inProgress {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  left: 0;
+  top: 10;
+  background-color: #EEEEEE;
+  border-right: 2px dotted red;
 }
