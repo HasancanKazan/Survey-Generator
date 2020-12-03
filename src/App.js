@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import './OptionView';
 import OptionView from './OptionView';
+import OptionGroup from './OptionGroup'
 
 export default class TodoDragDropDemo extends Component {
   
@@ -27,7 +28,7 @@ export default class TodoDragDropDemo extends Component {
     let taskName = event.dataTransfer.getData('task');
 
     let tasks = this.state.tasks.filter((task) => {
-      if(task.task == taskName)
+      if(task.task === taskName)
         task.type = cat;
       return task;
     });
@@ -58,9 +59,15 @@ export default class TodoDragDropDemo extends Component {
       );
     });
 
+    // <OptionView draggable onDragStart={event => console.log(event)} content={"helloo"} group="choice"></OptionView>
+    //     <OptionView draggable content={"my"} group="choice"></OptionView>
+    //     <OptionView draggable content={"name"} group="choice"></OptionView>
+    //     <OptionView draggable content={"loloo"} group="choice"></OptionView>
+
     return (
       <div className="drag-container">
-        <OptionView option={"helloo"}></OptionView>
+        <OptionGroup></OptionGroup>
+
         <h2 className="head">Todo List Drag & Drop</h2>
         <div className="inProgress"
           onDragOver={event => this.onDragOver(event)}

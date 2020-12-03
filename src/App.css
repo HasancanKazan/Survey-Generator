@@ -25,9 +25,14 @@
 }
 
 .option {
-  width: 50%;
-  border: black;
-  border-width: 5px;
+  width: 20%;
+  height: 40px;
+  margin-top: 10px;
+  align-self: center;
+  align-content: center;
+  text-align: center;
+  vertical-align: center;
+  border: 1px solid black;
 }
 
 .draggable {
