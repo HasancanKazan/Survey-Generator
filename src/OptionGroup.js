@@ -15,16 +15,22 @@ export default class OptionGroup extends Component {
         console.log("on drag capture");
     }
 
+    onDrag(event) {
+        console.log("on drag");
+    }
+
     createNewOptionView(event) {
         this.optionStack.push(`My stack ${this.id}`);
         this.id++;
         this.optionGroupList.push(<div key={this.id} draggable onDragStart={event => this.onDragStart(event)}
-            onDragCapture={event => this.onDragCapture(event)}>
+            onDragCapture={event => this.onDragCapture(event)}
+            onDrag={event => this.onDrag(event)}>
             <input type="radio" name={this.optionGroup} />
             {"my data"}
         </div>);
         console.log(this.optionStack);
-        console.log(this.optionGroupList)
+        console.log(this.optionGroupList);
+        this.setState({});
     }
 
     render() {
@@ -57,4 +63,4 @@ export default class OptionGroup extends Component {
             </div>
         );
     }
-}
+} 
