@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import './App.css'
 
 export default class OptionGroup extends Component {
 
     optionGroup = "my-group";
-    optionStack = [];
-    optionGroupList = [];
     id = 0;
+    state = {
+        options: []
+    }
 
     onDragStart(event) {
         console.log("on drag start");
@@ -16,49 +18,28 @@ export default class OptionGroup extends Component {
     }
 
     onDrag(event) {
-        console.log("on drag");
+        console.log(`on drag `);
     }
 
     createNewOptionView(event) {
-        this.optionStack.push(`My stack ${this.id}`);
-        this.id++;
-        this.optionGroupList.push(<div key={this.id} draggable onDragStart={event => this.onDragStart(event)}
-            onDragCapture={event => this.onDragCapture(event)}
-            onDrag={event => this.onDrag(event)}>
+        this.state.options.push(<div key={this.id} draggable
+            onDragStart={event => this.onDragStart(event)}
+            onDrag={event => this.onDrag(event)}
+            onDragCapture={event => this.onDragCapture(event)}>
             <input type="radio" name={this.optionGroup} />
-            {"my data"}
+            <div contentEditable className="optionBox">{`my stack ${this.id}`}</div>
         </div>);
-        console.log(this.optionStack);
-        console.log(this.optionGroupList);
-        this.setState({});
+        this.id++;
+        this.setState({options: this.state.options});
+        
     }
 
-    render() {
-        let group = [];
-        this.optionStack.forEach(elem => {
-            group.push(
-                <div key={this.id} draggable onDragStart={event => this.onDragStart(event)}
-                    onDragCapture={event => this.onDragCapture(event)}>
-                    <input type="radio" name={this.optionGroup} />
-                    {"my data"}
-                </div>
-            );
-        });
-        // let optionGroupList = [];
-        // const optionView = (
-        //     <div draggable onDragStart={event => this.onDragStart(event)}
-        //         onDragCapture={event => this.onDragCapture(event)}>
-        //         <input type="radio" name={this.optionGroup}/>
-        //             {"my data"}
-        //     </div>);
 
-        // let optionGroup = this.optionStack.forEach(val => {
-        //     optionGroupList.push(optionView);
-        // });
+    render() {
 
         return (
             <div>
-                {group}
+                {this.state.options.map(state => state)}
                 <button onClick={event => this.createNewOptionView(event)}>New Option</button>
             </div>
         );

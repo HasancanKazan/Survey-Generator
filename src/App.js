@@ -5,7 +5,7 @@ import OptionView from './OptionView';
 import OptionGroup from './OptionGroup'
 
 export default class TodoDragDropDemo extends Component {
-  
+
   state = {
     tasks: [
       {id: 1, task: "Read book", type: "inProgress", backgroundColor: "red"},
@@ -14,7 +14,7 @@ export default class TodoDragDropDemo extends Component {
       {id: 4, task: "Play baseball", type: "done", backgroundColor: "green"}
     ]
   };
- 
+
   onDragStart = (event, task) => {
     console.log(`drag start on div: ${task}`);
     event.dataTransfer.setData('task', task);
@@ -66,7 +66,7 @@ export default class TodoDragDropDemo extends Component {
 
     return (
       <div className="drag-container">
-        <OptionGroup></OptionGroup>
+        <OptionGroup></OptionGroup> 
 
         <h2 className="head">Todo List Drag & Drop</h2>
         <div className="inProgress"
