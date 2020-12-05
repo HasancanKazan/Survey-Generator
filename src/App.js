@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import './OptionView';
-import OptionView from './OptionView';
 import OptionGroup from './OptionGroup'
 
 export default class TodoDragDropDemo extends Component {
@@ -58,11 +56,6 @@ export default class TodoDragDropDemo extends Component {
         </div>
       );
     });
-
-    // <OptionView draggable onDragStart={event => console.log(event)} content={"helloo"} group="choice"></OptionView>
-    //     <OptionView draggable content={"my"} group="choice"></OptionView>
-    //     <OptionView draggable content={"name"} group="choice"></OptionView>
-    //     <OptionView draggable content={"loloo"} group="choice"></OptionView>
 
     return (
       <div className="drag-container">
